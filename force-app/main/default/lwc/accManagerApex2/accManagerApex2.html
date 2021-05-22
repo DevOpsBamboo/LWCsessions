@@ -1,0 +1,24 @@
+<template>
+    
+    <lightning-card title="Let's display Account Records">
+        
+        <lightning-input type="number" label="Enter Number of Records" onchange={numberofrecords}></lightning-input>
+        <lightning-button onclick={fetchnumberofrecords}  label="Submit"></lightning-button>
+        <template if:true={showRecs}>
+        <ul>
+        <template for:each={accRecsFetched} for:item="AccRecs">
+            <li key={AccRecs.Id}>
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-tile label={AccRecs.Name} type="media">
+                        
+                        <p class="slds-truncate" title="">{AccRecs.Phone}</p>
+                    </lightning-tile>
+                </div>
+            </li>
+        </template>
+        </ul>
+    </template>
+      
+
+    </lightning-card>
+</template>
